@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admissions — Cornerstone Group Of Schools, Oyo</title>
+  <meta name="description" content="Learn about our admission process, entry requirements, fees structure, portal login, and frequently asked questions." />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    /* Custom Admissions styles */
+    .page-header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: var(--white);
+      padding: 80px 0;
+      text-align: center;
+    }
+    .page-header h1 {
+      color: var(--white);
+      font-size: 3rem;
+      margin-bottom: 12px;
+    }
+    .breadcrumbs {
+      font-family: var(--font-head);
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+    .breadcrumbs a {
+      color: var(--secondary);
+    }
+    .admissions-steps {
+      padding: 80px 0;
+    }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+    .step-card {
+      background-color: var(--white);
+      border: 1px solid rgba(10, 61, 37, 0.06);
+      padding: 30px 24px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      position: relative;
+    }
+    .step-num {
+      position: absolute;
+      top: -20px;
+      left: 24px;
+      background-color: var(--secondary);
+      color: var(--primary-dark);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: 1.2rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .step-card h3 {
+      font-size: 1.25rem;
+      margin-top: 10px;
+      margin-bottom: 12px;
+      color: var(--primary-dark);
+    }
+    .step-card p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+    .req-fees-section {
+      background-color: var(--light-bg);
+      padding: 80px 0;
+    }
+    .req-fees-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 60px;
+    }
+    .requirements-box {
+      background-color: var(--white);
+      padding: 40px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-md);
+    }
+    .requirements-box h3 {
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+    }
+    .requirements-box h4 {
+      font-size: 1.1rem;
+      margin-top: 20px;
+      margin-bottom: 8px;
+      color: var(--primary-light);
+    }
+    .fees-box {
+      background-color: var(--white);
+      padding: 40px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-md);
+    }
+    .fees-box h3 {
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+    }
+    .table-responsive {
+      overflow-x: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+    }
+    th, td {
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid rgba(10, 61, 37, 0.08);
+    }
+    th {
+      background-color: var(--primary);
+      color: var(--white);
+      font-family: var(--font-head);
+      font-weight: 600;
+    }
+    tr:nth-child(even) {
+      background-color: rgba(10, 61, 37, 0.02);
+    }
+    .alert-box {
+      background-color: rgba(255, 200, 10, 0.1);
+      border-left: 4px solid var(--secondary);
+      padding: 15px;
+      border-radius: var(--radius-sm);
+      font-size: 0.88rem;
+      color: var(--ink);
+    }
+    .faq-section {
+      padding: 80px 0;
+    }
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      margin-top: 40px;
+    }
+    .faq-card {
+      background-color: var(--white);
+      padding: 30px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      border-left: 4px solid var(--primary);
+    }
+    .faq-card h4 {
+      font-size: 1.15rem;
+      margin-bottom: 10px;
+      color: var(--primary-dark);
+    }
+    .faq-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+    .portal-section {
+      padding: 80px 0;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: var(--white);
+    }
+    .portal-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .portal-text h2 {
+      color: var(--white);
+      font-size: 2.4rem;
+      margin-bottom: 16px;
+    }
+    .portal-text p {
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 24px;
+      line-height: 1.7;
+    }
+    .portal-login-card {
+      background-color: var(--white);
+      color: var(--ink);
+      padding: 40px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg);
+    }
+    .portal-login-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      text-align: center;
+      color: var(--primary-dark);
+    }
+    @media (max-width: 1024px) {
+      .steps-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
+      .req-fees-grid { grid-template-columns: 1fr; }
+      .faq-grid { grid-template-columns: 1fr; }
+      .portal-grid { grid-template-columns: 1fr; gap: 40px; }
+    }
+    @media (max-width: 640px) {
+      .steps-grid { grid-template-columns: 1fr; }
+      .page-header h1 { font-size: 2.2rem; }
+      .portal-login-card { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP CONTACT BAR -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div class="top-bar-left">
+        📍 New Iyaji Layout, Oyo, Oyo State, Nigeria &nbsp;·&nbsp; <strong>2026/2027 Admissions Open</strong>
+      </div>
+      <div class="top-bar-right">
+        <a href="https://wa.me/2348060307628" target="_blank">WhatsApp Chat</a>
+        <a href="mailto:info@cornerstonecollege.com">info@cornerstonecollege.com</a>
+        <a href="tel:+2348060307628">+234 806 030 7628</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo" id="navLogo">
+        <img src="assets/img/logo.jpg" alt="Christ the Cornerstone Model College crest">
+        <span class="brand-text">
+          <strong>Cornerstone College</strong>
+          <small>Est. 2008 · Day &amp; Boarding</small>
+        </span>
+      </a>
+
+      <!-- DESKTOP NAV ITEMS -->
+      <ul class="nav-links mega-nav" id="desktopNav">
+        <li class="mega-item"><a href="index.html">Home</a></li>
+
+        <li class="mega-item has-mega">
+          <span class="mega-trigger-wrap">
+            <a href="about.html" class="mega-trigger">About</a>
+            <button class="mega-caret" type="button" aria-label="Toggle About menu" aria-expanded="false">
+              <svg viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5 6 6.5 11 1.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </span>
+          <div class="mega-panel">
+            <div class="mega-panel-inner">
+              <div class="mega-col">
+                <div class="mega-col-title">Our School</div>
+                <ul class="mega-links">
+                  <li><a href="about.html#story">Our Story</a></li>
+                  <li><a href="about.html#mission">Mission &amp; Vision</a></li>
+                  <li><a href="about.html#culture">Core Culture</a></li>
+                  <li><a href="about.html#leadership">Leadership Team</a></li>
+                </ul>
+              </div>
+              <div class="mega-feature">
+                <div class="mega-feature-label">Est. 2008</div>
+                <div class="mega-feature-title">Shaping Oyo's Brightest Minds for nearly two decades.</div>
+                <div class="mega-feature-body">A co-educational Christian institution providing preschool, primary, and secondary learning on a secure, nurturing campus.</div>
+                <a href="about.html" class="mega-feature-link">Learn more →</a>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="mega-item has-mega">
+          <span class="mega-trigger-wrap">
+            <a href="programmes.html" class="mega-trigger">Programmes</a>
+            <button class="mega-caret" type="button" aria-label="Toggle Programmes menu" aria-expanded="false">
+              <svg viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5 6 6.5 11 1.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </span>
+          <div class="mega-panel mega-panel-3col">
+            <div class="mega-panel-inner">
+              <div class="mega-col">
+                <div class="mega-col-title">Academic Levels</div>
+                <ul class="mega-links">
+                  <li><a href="programmes.html#preschool">Preschool &amp; Nursery</a></li>
+                  <li><a href="programmes.html#primary">Primary School</a></li>
+                  <li><a href="programmes.html#secondary">Secondary School</a></li>
+                </ul>
+              </div>
+              <div class="mega-col">
+                <div class="mega-col-title">Enrichment</div>
+                <ul class="mega-links">
+                  <li><a href="programmes.html#ict">STEM &amp; Digital Lab</a></li>
+                  <li><a href="programmes.html#clubs">Recreational Clubs</a></li>
+                  <li><a href="programmes.html#sports">Sports &amp; Athletics</a></li>
+                  <li><a href="programmes.html#arts">Arts &amp; Culture</a></li>
+                </ul>
+              </div>
+              <div class="mega-feature">
+                <div class="mega-feature-label">WAEC Results</div>
+                <div class="mega-feature-title">Consistent Top Academic Performers in Oyo.</div>
+                <div class="mega-feature-body">Dedicated educators combined with our modern learning facilities guarantee strong success rates in national and international examinations.</div>
+                <a href="about.html" class="mega-feature-link">Our Achievements →</a>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="mega-item has-mega active">
+          <span class="mega-trigger-wrap">
+            <a href="admissions.html" class="mega-trigger">Admissions</a>
+            <button class="mega-caret" type="button" aria-label="Toggle Admissions menu" aria-expanded="false">
+              <svg viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5 6 6.5 11 1.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </span>
+          <div class="mega-panel">
+            <div class="mega-panel-inner">
+              <div class="mega-col">
+                <div class="mega-col-title">Apply</div>
+                <ul class="mega-links">
+                  <li><a href="admissions.html#process">Admission Steps</a></li>
+                  <li><a href="admissions.html#requirements">Entry Requirements</a></li>
+                  <li><a href="admissions.html#fees">Fees &amp; Billing</a></li>
+                  <li><a href="admissions.html#faq">Admissions FAQs</a></li>
+                </ul>
+              </div>
+              <div class="mega-feature">
+                <div class="mega-feature-label">Enrollment Open</div>
+                <div class="mega-feature-title">Limited boarding and day school vacancies available.</div>
+                <div class="mega-feature-body">Begin with purchasing our application form online or visiting the administrative block directly.</div>
+                <a href="admissions.html" class="mega-feature-link">Apply Now →</a>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="mega-item"><a href="contact.html">Contact Us</a></li>
+      </ul>
+
+      <div class="nav-cta-group">
+        <a href="admissions.html#portal" class="btn btn-outline btn-sm">Portal</a>
+        <a href="admissions.html" class="btn btn-secondary btn-sm">Apply Now →</a>
+      </div>
+
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE NAV OVERLAY -->
+  <div class="mobile-nav" id="mobileNav" aria-hidden="true" role="dialog" aria-label="Navigation menu">
+    <div class="mobile-nav-head">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/img/logo.jpg" alt="Cornerstone logo" style="height:38px;">
+        <span class="brand-text">
+          <strong style="color:#fff">Cornerstone Group Of Schools</strong>
+          <small>Est. 2008 · Day &amp; Boarding</small>
+        </span>
+      </a>
+      <button class="mobile-nav-close" id="mobileClose" aria-label="Close menu">&times;</button>
+    </div>
+
+    <a href="index.html" class="mob-link">Home</a>
+
+    <div class="mob-group">
+      <button class="mob-parent" aria-expanded="false" onclick="toggleMobSub(this)">
+        About <span class="mob-chevron">&#8250;</span>
+      </button>
+      <ul class="mob-sub">
+        <li><a href="about.html#story">Our Story</a></li>
+        <li><a href="about.html#mission">Mission &amp; Vision</a></li>
+        <li><a href="about.html#culture">Core Culture</a></li>
+        <li><a href="about.html#leadership">Leadership Team</a></li>
+      </ul>
+    </div>
+
+    <div class="mob-group">
+      <button class="mob-parent" aria-expanded="false" onclick="toggleMobSub(this)">
+        Programmes <span class="mob-chevron">&#8250;</span>
+      </button>
+      <ul class="mob-sub">
+        <li><a href="programmes.html">All Programmes</a></li>
+        <li><a href="programmes.html#preschool">Preschool &amp; Nursery</a></li>
+        <li><a href="programmes.html#primary">Primary School</a></li>
+        <li><a href="programmes.html#secondary">Secondary School</a></li>
+        <li><a href="programmes.html#ict">STEM Lab</a></li>
+        <li><a href="programmes.html#clubs">Recreational Clubs</a></li>
+        <li><a href="programmes.html#sports">Sports &amp; Athletics</a></li>
+        <li><a href="programmes.html#arts">Arts &amp; Culture</a></li>
+      </ul>
+    </div>
+
+    <div class="mob-group">
+      <button class="mob-parent" aria-expanded="true" onclick="toggleMobSub(this)">
+        Admissions <span class="mob-chevron">&#8250;</span>
+      </button>
+      <ul class="mob-sub open">
+        <li><a href="admissions.html#process">How to Apply</a></li>
+        <li><a href="admissions.html#requirements">Entry Requirements</a></li>
+        <li><a href="admissions.html#fees">Fees</a></li>
+        <li><a href="admissions.html#faq">FAQs</a></li>
+      </ul>
+    </div>
+
+    <a href="contact.html" class="mob-link">Contact</a>
+
+    <div class="mobile-nav-ctas">
+      <a href="admissions.html#portal" class="btn btn-outline">Portal Login</a>
+      <a href="admissions.html" class="btn btn-secondary">Apply Now →</a>
+    </div>
+  </div>
+
+  <!-- MOBILE OVERLAY BACKDROP -->
+  <div class="mobile-nav-backdrop" id="mobileBackdrop"></div>
+
+  <!-- PAGE HEADER -->
+  <header class="page-header">
+    <div class="container">
+      <h1>Admissions Guidelines</h1>
+      <div class="breadcrumbs">
+        <a href="index.html">Home</a> &nbsp;/&nbsp; Admissions
+      </div>
+    </div>
+  </header>
+
+  <!-- ADMISSIONS PROCESS -->
+  <section class="container admissions-steps" id="process">
+    <div class="section-heading-center fade-up">
+      <div class="section-label">Enrollment</div>
+      <h2>Our Step-by-Step Admission Process</h2>
+      <p>We welcome you to enroll your child into Cornerstone Group Of Schools. Follow this simple path to secure admission.</p>
+    </div>
+
+    <div class="steps-grid">
+      <div class="step-card fade-up stagger-1">
+        <div class="step-num">1</div>
+        <h3>Purchase Form</h3>
+        <p>Purchase the application form from our administrative office on campus or apply online via our secure admissions portal below.</p>
+      </div>
+
+      <div class="step-card fade-up stagger-2">
+        <div class="step-num">2</div>
+        <h3>Entrance Exams</h3>
+        <p>Your child will take entrance tests covering Mathematics, English, and general reasoning at our designated testing blocks.</p>
+      </div>
+
+      <div class="step-card fade-up stagger-3">
+        <div class="step-num">3</div>
+        <h3>Oral Interview</h3>
+        <p>A parent and child interactive interview with the Director of Schools or Principal follows to review child behavior and academic standing.</p>
+      </div>
+
+      <div class="step-card fade-up stagger-4">
+        <div class="step-num">4</div>
+        <h3>Admission Offer</h3>
+        <p>Successful candidates receive admission letters. Secure registration by making tuition payments at our bursar-approved bank details.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- REQUIREMENTS & FEES -->
+  <section class="req-fees-section">
+    <div class="container req-fees-grid">
+      <!-- Requirements -->
+      <div class="requirements-box fade-up" id="requirements">
+        <h3>Entry Requirements</h3>
+        <p>Please ensure you bring along the following documents during the interview stage:</p>
+        
+        <h4>Preschool &amp; Nursery</h4>
+        <ul class="admissions-list" style="margin-top: 10px; margin-bottom: 20px;">
+          <li>A copy of child's birth certificate</li>
+          <li>Immunisation record card</li>
+          <li>Two recent passport photographs</li>
+        </ul>
+
+        <h4>Primary &amp; Secondary Level</h4>
+        <ul class="admissions-list" style="margin-top: 10px; margin-bottom: 0;">
+          <li>Transfer certificate from previous school</li>
+          <li>Last academic report sheet (Report Card)</li>
+          <li>Four recent passport photographs</li>
+          <li>Satisfactory score in our entrance examination</li>
+        </ul>
+      </div>
+
+      <!-- Fees -->
+      <div class="fees-box fade-up stagger-2" id="fees">
+        <h3>Annual Fee Structure Range</h3>
+        <p>Our fees are structured to guarantee high-quality child training that families can sustain. Below is the general termly tuition guideline:</p>
+        
+        <div class="table-responsive" style="margin-top: 20px;">
+          <table>
+            <thead>
+              <tr>
+                <th>Level</th>
+                <th>Tuition Fee (Per Term)</th>
+                <th>Boarding Fee (Optional)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Preschool / Nursery</td>
+                <td>Contact the admin</td>
+                <td>Not Available</td>
+              </tr>
+              <tr>
+                <td>Primary School</td>
+                <td>Contact the admin</td>
+                <td>Not Available</td>
+              </tr>
+              <tr>
+                <td>Junior Secondary</td>
+                <td>Contact the admin</td>
+                
+              </tr>
+              <tr>
+                <td>Senior Secondary</td>
+                <td>Contact the admin</td>
+              
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="alert-box">
+          ⚠️ <strong>Note:</strong> Textbook fees, uniform costs, and registration fees are charged separately. Please consult the bursar's office for the complete, up-to-date fees invoice.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQS SECTION -->
+  <section class="container faq-section" id="faq">
+    <div class="section-heading-center fade-up">
+      <div class="section-label">Questions</div>
+      <h2>Frequently Asked Questions</h2>
+    </div>
+
+    <div class="faq-grid">
+      <div class="faq-card fade-up stagger-1">
+        <h4>When do admission registrations open?</h4>
+        <p>Registration for each academic year commences in January and closes in August. Entrance examinations are held in blocks from April to July.</p>
+      </div>
+
+      <div class="faq-card fade-up stagger-2">
+        <h4>Do you offer primary boarding school?</h4>
+        <p>No. Our boarding house facilities are strictly reserved for secondary school students (JSS 1 – SSS 3) to ensure appropriate maturity, safety, and focused studying.</p>
+      </div>
+
+      <div class="faq-card fade-up stagger-3">
+        <h4>Are midterm transfers accepted?</h4>
+        <p>Yes. Depending on seat availability and child performance in our mid-term assessment tests, we accept student transfers at the start of second or third terms.</p>
+      </div>
+
+      <div class="faq-card fade-up stagger-4">
+        <h4>What sports are available at boarding school?</h4>
+        <p>Boarders participate in football training, basketball, athletics practice, table tennis tournaments, and group Christian fellowships every weekend.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTAL SECTION -->
+  <section class="portal-section" id="portal">
+    <div class="container portal-grid">
+      <div class="portal-text fade-up">
+        <h2>School Portal Access</h2>
+        <p>Our online portal allows students, parents, and teachers to access term results, download fees invoices, pay tuition bills online, and view weekly learning timetables from any device.</p>
+        <p>If you have registered, use your student registration ID or parent email address to sign in. For registration issues, kindly mail <em>support@cornerstonecollege.com</em>.</p>
+      </div>
+
+      <div class="portal-login-card fade-up stagger-2">
+        <h3>Cornerstone Portal Login</h3>
+        <form onsubmit="event.preventDefault(); alert('Cornerstone College: Mock Portal authentication successful! In a production environment, this will authorize credentials.');">
+          <div class="form-group">
+            <label class="form-label" for="portalUsername">Username or Portal ID</label>
+            <input type="text" id="portalUsername" class="form-control" placeholder="e.g. CCMC/2026/089" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="portalPassword">Portal Password</label>
+            <input type="password" id="portalPassword" class="form-control" placeholder="••••••••" required />
+          </div>
+          <div class="form-group" style="display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; margin-top:-5px; margin-bottom: 20px;">
+            <label style="display: inline-flex; align-items: center; gap: 6px; cursor: pointer;">
+              <input type="checkbox" /> Remember me
+            </label>
+            <a href="#" style="color:var(--primary); text-decoration: underline;">Forgot password?</a>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Access Portal Account</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contactSection">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="nav-logo" style="margin-bottom: 20px; display: inline-flex;">
+            <div class="footer-logo-mark">CGS</div>
+            <span class="brand-text">
+              <strong style="color:white; font-size:1.1rem; padding-left: 8px;">Cornerstone Group Of Schools</strong>
+            </span>
+          </a>
+          <p class="footer-brand-text">Cornerstone Group Of Schools provides high-quality preschool, primary, and secondary education in Oyo, Oyo State. Our mandate is to combine academic excellence with strict moral discipline.</p>
+          <div class="social-links">
+            <a href="#" class="social-link" aria-label="Facebook">FB</a>
+            <a href="#" class="social-link" aria-label="Instagram">IG</a>
+            <a href="#" class="social-link" aria-label="WhatsApp">WA</a>
+            <a href="#" class="social-link" aria-label="LinkedIn">LN</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h5>Programmes</h5>
+          <ul>
+            <li><a href="programmes.html#preschool">Preschool &amp; Nursery</a></li>
+            <li><a href="programmes.html#primary">Primary School</a></li>
+            <li><a href="programmes.html#secondary">Secondary School</a></li>
+            <li><a href="programmes.html#ict">STEM &amp; Science Labs</a></li>
+            <li><a href="programmes.html#clubs">Recreational Clubs</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Our School</h5>
+          <ul>
+            <li><a href="about.html#story">Our Story</a></li>
+            <li><a href="about.html#mission">Mission &amp; Vision</a></li>
+            <li><a href="about.html#leadership">School Leadership</a></li>
+            <li><a href="admissions.html">Admissions</a></li>
+            <li><a href="contact.html">Contact &amp; Map</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <ul>
+            <li><a href="tel:+2348060307628">+234 806 030 7628</a></li>
+            <li><a href="https://wa.me/2348060307628">WhatsApp Admissions</a></li>
+            <li><a href="mailto:info@cornerstonecollege.com">info@cornerstonecollege.com</a></li>
+            <li>New Iyaji Layout,</li>
+            <li>Oyo, Oyo State, Nigeria</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Cornerstone Group Of Schools, Oyo. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a></p>
+        <p>Built with Discipline and Excellence.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

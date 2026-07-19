@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard — Cornerstone College</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="stylesheet" href="assets/css/admin.css" />
+</head>
+<body data-page="admin-dashboard">
+
+  <div class="admin-layout">
+
+    <!-- ====================================================
+         SIDEBAR
+         ==================================================== -->
+    <aside class="admin-sidebar" id="adminSidebar">
+
+      <div class="sidebar-logo">
+        <div class="sidebar-logo-mark">CC</div>
+        <div class="sidebar-logo-text">
+          <strong>Admin Portal</strong>
+          <small>Cornerstone College</small>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="sidebar-section-label">MAIN</div>
+
+        <a class="sidebar-link" data-section="overview">
+          <span class="nav-icon">🏠</span>
+          <span>Overview</span>
+        </a>
+
+        <div class="sidebar-section-label">CONTENT</div>
+
+        <a class="sidebar-link" data-section="videos">
+          <span class="nav-icon">🎬</span>
+          <span>Videos</span>
+        </a>
+
+        <div class="sidebar-section-label">GALLERIES</div>
+
+        <a class="sidebar-link" data-section="stem">
+          <span class="nav-icon">💻</span>
+          <span>STEM &amp; Code Lab</span>
+        </a>
+
+        <a class="sidebar-link" data-section="clubs">
+          <span class="nav-icon">🎭</span>
+          <span>Recreational Clubs</span>
+        </a>
+
+        <a class="sidebar-link" data-section="sports">
+          <span class="nav-icon">⚽</span>
+          <span>Sports &amp; Athletics</span>
+        </a>
+
+        <a class="sidebar-link" data-section="arts">
+          <span class="nav-icon">🎨</span>
+          <span>Arts &amp; Culture</span>
+        </a>
+
+        <div class="sidebar-section-label">SYSTEM</div>
+
+        <a class="sidebar-link" data-section="settings">
+          <span class="nav-icon">⚙️</span>
+          <span>Settings</span>
+        </a>
+
+        <a class="sidebar-link" href="index.html" target="_blank" style="margin-top:4px;">
+          <span class="nav-icon">🌐</span>
+          <span>View Website</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-user">
+          <div class="sidebar-user-avatar">A</div>
+          <div class="sidebar-user-info">
+            <strong>Administrator</strong>
+            <small>cornerstone</small>
+          </div>
+          <button class="sidebar-logout-btn" id="logoutBtn" title="Log Out">⏻</button>
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- ====================================================
+         MAIN CONTENT
+         ==================================================== -->
+    <main class="admin-main">
+
+      <!-- TOP BAR -->
+      <header class="admin-topbar">
+        <button class="hamburger-btn" id="sidebarToggle" aria-label="Toggle sidebar">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="topbar-title">
+          <div id="topbarTitle">Dashboard Overview</div>
+          <small id="topbarSub">Welcome back, Administrator</small>
+        </div>
+        <div class="topbar-actions">
+          <a href="index.html" target="_blank" class="topbar-btn topbar-btn-outline">🌐 View Site</a>
+          <button class="topbar-btn topbar-btn-primary" id="logoutBtn2">⏻ Log Out</button>
+        </div>
+      </header>
+
+      <!-- CONTENT PANELS -->
+      <div class="admin-content">
+
+        <!-- ======================================
+             OVERVIEW SECTION
+             ====================================== -->
+        <section class="admin-section" id="section-overview">
+
+          <!-- Welcome Banner -->
+          <div style="background:linear-gradient(135deg,#0a3d25,#062315);border-radius:16px;padding:32px;color:white;margin-bottom:28px;position:relative;overflow:hidden;">
+            <div style="position:absolute;top:-60px;right:-60px;width:250px;height:250px;border-radius:50%;background:rgba(255,200,10,0.06);"></div>
+            <div style="position:relative;z-index:1;">
+              <h2 style="font-family:'Outfit',sans-serif;font-size:1.8rem;font-weight:800;margin-bottom:8px;color:white;">Good to see you, Admin 👋</h2>
+              <p style="color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:24px;">Manage your school website's videos and gallery images from this dashboard. Changes appear on the website instantly.</p>
+              <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                <button onclick="document.querySelector('[data-section=videos]').click()" class="btn btn-accent">🎬 Add Video</button>
+                <button onclick="document.querySelector('[data-section=stem]').click()" class="btn" style="background:rgba(255,255,255,0.12);color:white;border:1px solid rgba(255,255,255,0.2);">🖼️ Manage Galleries</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stats Cards -->
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-icon green">🎬</div>
+              <div class="stat-info">
+                <strong id="stat-videos">0</strong>
+                <span>Published Videos</span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon yellow">🖼️</div>
+              <div class="stat-info">
+                <strong id="stat-total-gallery">0</strong>
+                <span>Gallery Images Total</span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon blue">💻</div>
+              <div class="stat-info">
+                <strong id="stat-stem">0</strong>
+                <span>STEM Gallery Images</span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon red">⚽</div>
+              <div class="stat-info">
+                <strong id="stat-sports">0</strong>
+                <span>Sports Gallery Images</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Links Grid -->
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;">
+            <div class="admin-card">
+              <div class="admin-card-body" style="padding:20px;">
+                <div style="font-size:2rem;margin-bottom:12px;">💻</div>
+                <h4 style="font-family:'Outfit',sans-serif;font-weight:700;margin-bottom:6px;color:#1a2420;">STEM Gallery</h4>
+                <p style="font-size:0.82rem;color:#6b7a74;margin-bottom:14px;"><span id="stat-stem-2">0</span> images uploaded</p>
+                <button class="btn btn-outline btn-sm" data-goto="stem" onclick="document.querySelector('[data-section=stem]').click()">Manage →</button>
+              </div>
+            </div>
+            <div class="admin-card">
+              <div class="admin-card-body" style="padding:20px;">
+                <div style="font-size:2rem;margin-bottom:12px;">🎭</div>
+                <h4 style="font-family:'Outfit',sans-serif;font-weight:700;margin-bottom:6px;color:#1a2420;">Clubs Gallery</h4>
+                <p style="font-size:0.82rem;color:#6b7a74;margin-bottom:14px;"><span id="stat-clubs">0</span> images uploaded</p>
+                <button class="btn btn-outline btn-sm" onclick="document.querySelector('[data-section=clubs]').click()">Manage →</button>
+              </div>
+            </div>
+            <div class="admin-card">
+              <div class="admin-card-body" style="padding:20px;">
+                <div style="font-size:2rem;margin-bottom:12px;">⚽</div>
+                <h4 style="font-family:'Outfit',sans-serif;font-weight:700;margin-bottom:6px;color:#1a2420;">Sports Gallery</h4>
+                <p style="font-size:0.82rem;color:#6b7a74;margin-bottom:14px;"><span id="stat-sports-2">0</span> images uploaded</p>
+                <button class="btn btn-outline btn-sm" onclick="document.querySelector('[data-section=sports]').click()">Manage →</button>
+              </div>
+            </div>
+            <div class="admin-card">
+              <div class="admin-card-body" style="padding:20px;">
+                <div style="font-size:2rem;margin-bottom:12px;">🎨</div>
+                <h4 style="font-family:'Outfit',sans-serif;font-weight:700;margin-bottom:6px;color:#1a2420;">Arts Gallery</h4>
+                <p style="font-size:0.82rem;color:#6b7a74;margin-bottom:14px;"><span id="stat-arts">0</span> images uploaded</p>
+                <button class="btn btn-outline btn-sm" onclick="document.querySelector('[data-section=arts]').click()">Manage →</button>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- ======================================
+             VIDEO MANAGEMENT SECTION
+             ====================================== -->
+        <section class="admin-section" id="section-videos">
+
+          <div class="admin-card" style="margin-bottom:24px;">
+            <div class="admin-card-header">
+              <div>
+                <h3>Website Videos</h3>
+                <p>Videos displayed on the home page testimonials section. Supports YouTube embed URLs and direct file uploads.</p>
+              </div>
+              <button class="btn btn-primary" onclick="openAddVideoModal()">+ Add Video</button>
+            </div>
+            <div class="admin-card-body">
+              <div class="notice-banner info">
+                ℹ️ <strong>Tip:</strong> For large video files, use YouTube links for best performance. Uploaded files are stored in your browser's local storage.
+              </div>
+              <div class="video-list" id="videoList">
+                <!-- Rendered by JS -->
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- ======================================
+             GALLERY SECTIONS (STEM, CLUBS, SPORTS, ARTS)
+             Each uses the same template — JS renders into #galleryGrid
+             ====================================== -->
+        <section class="admin-section" id="section-stem">
+          <div class="admin-card">
+            <div class="admin-card-header">
+              <div>
+                <h3>💻 STEM &amp; Code Lab Gallery</h3>
+                <p>Images shown in the STEM section on the Programmes page.</p>
+              </div>
+              <button class="btn btn-primary" onclick="openAddImageModal('stem')">+ Add Image</button>
+            </div>
+            <div class="admin-card-body">
+              <div class="notice-banner info">ℹ️ Images auto-slideshow every 10 seconds on the website. Recommended size: 800×600px or wider.</div>
+              <div class="gallery-grid" id="galleryGrid"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="admin-section" id="section-clubs">
+          <div class="admin-card">
+            <div class="admin-card-header">
+              <div>
+                <h3>🎭 Recreational Clubs Gallery</h3>
+                <p>Images shown in the Clubs section on the Programmes page.</p>
+              </div>
+              <button class="btn btn-primary" onclick="openAddImageModal('clubs')">+ Add Image</button>
+            </div>
+            <div class="admin-card-body">
+              <div class="notice-banner info">ℹ️ Images auto-slideshow every 10 seconds on the website.</div>
+              <div class="gallery-grid" id="galleryGrid"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="admin-section" id="section-sports">
+          <div class="admin-card">
+            <div class="admin-card-header">
+              <div>
+                <h3>⚽ Sports &amp; Athletics Gallery</h3>
+                <p>Images shown in the Sports section on the Programmes page.</p>
+              </div>
+              <button class="btn btn-primary" onclick="openAddImageModal('sports')">+ Add Image</button>
+            </div>
+            <div class="admin-card-body">
+              <div class="notice-banner info">ℹ️ Images auto-slideshow every 10 seconds on the website.</div>
+              <div class="gallery-grid" id="galleryGrid"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="admin-section" id="section-arts">
+          <div class="admin-card">
+            <div class="admin-card-header">
+              <div>
+                <h3>🎨 Arts &amp; Culture Gallery</h3>
+                <p>Images shown in the Arts section on the Programmes page.</p>
+              </div>
+              <button class="btn btn-primary" onclick="openAddImageModal('arts')">+ Add Image</button>
+            </div>
+            <div class="admin-card-body">
+              <div class="notice-banner info">ℹ️ Images auto-slideshow every 10 seconds on the website.</div>
+              <div class="gallery-grid" id="galleryGrid"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ======================================
+             SETTINGS SECTION
+             ====================================== -->
+        <section class="admin-section" id="section-settings">
+          <div class="admin-card" style="margin-bottom:20px;">
+            <div class="admin-card-header">
+              <div>
+                <h3>⚙️ Portal Settings</h3>
+                <p>General administration settings and data management.</p>
+              </div>
+            </div>
+            <div class="admin-card-body">
+
+              <div style="margin-bottom:28px;">
+                <h4 style="font-family:'Outfit',sans-serif;font-weight:700;margin-bottom:6px;">Credentials</h4>
+                <p style="font-size:0.88rem;color:#6b7a74;margin-bottom:16px;">Your admin login credentials are hardcoded for this static site deployment. To change them, edit the <code>ADMIN_CREDS</code> constant in <code>assets/js/admin.js</code>.</p>
+                <div style="background:#f4f7f5;border:1px solid rgba(10,61,37,0.1);padding:16px;border-radius:8px;font-size:0.85rem;font-family:'Courier New',monospace;color:#0a3d25;">
+                  username: <strong>cornerstone</strong><br>
+                  password: <strong>cornerstone@2026</strong>
+                </div>
+              </div>
+
+              <div style="margin-bottom:28px;">
+                <h4 style="font-family:'Outfit',sans-serif;font-weight:700;margin-bottom:6px;color:#d93025;">⚠️ Danger Zone</h4>
+                <p style="font-size:0.88rem;color:#6b7a74;margin-bottom:16px;">Clear all stored data from the browser. This will remove all uploaded videos and gallery images and restore the default seed content.</p>
+                <button class="btn btn-danger" onclick="resetAllData()">🗑️ Reset All Data to Defaults</button>
+              </div>
+
+              <div>
+                <h4 style="font-family:'Outfit',sans-serif;font-weight:700;margin-bottom:6px;">Export Data</h4>
+                <p style="font-size:0.88rem;color:#6b7a74;margin-bottom:16px;">Export all gallery and video data as a JSON backup file.</p>
+                <button class="btn btn-outline" onclick="exportData()">📥 Export JSON Backup</button>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- ====================================================
+       MODAL: ADD / EDIT VIDEO
+       ==================================================== -->
+  <div class="modal-backdrop" id="modalAddVideo" role="dialog" aria-modal="true">
+    <div class="modal">
+      <div class="modal-header">
+        <div>
+          <h3 id="videoModalTitle">Add New Video</h3>
+          <p>Add a YouTube embed URL or upload a video file from your device.</p>
+        </div>
+        <button class="modal-close" aria-label="Close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="videoForm" onsubmit="return false;">
+
+          <div class="form-group">
+            <label class="form-label">Video Title *</label>
+            <input type="text" id="vTitle" class="form-control-plain" placeholder="e.g. Robotics Showcase 2026" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Short Description</label>
+            <textarea id="vDesc" class="form-control-plain" placeholder="Brief description displayed below the video..." rows="3"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Video Source Type</label>
+            <select id="vType" class="form-control-plain">
+              <option value="youtube">📺 YouTube Embed URL</option>
+              <option value="file">📁 Upload Video File</option>
+            </select>
+          </div>
+
+          <!-- YouTube URL row -->
+          <div class="form-group" id="ytUrlRow">
+            <label class="form-label">YouTube Video URL or Embed URL</label>
+            <input type="url" id="vYTUrl" class="form-control-plain" placeholder="https://www.youtube.com/watch?v=... or https://youtube.com/embed/..." />
+            <p style="font-size:0.78rem;color:#6b7a74;margin-top:6px;">Paste any YouTube URL — it will be converted to an embed automatically.</p>
+          </div>
+
+          <!-- File upload row -->
+          <div id="fileUploadRow" style="display:none;">
+            <label class="form-label">Upload Video File</label>
+            <div class="upload-zone" id="videoUploadZone">
+              <span class="upload-zone-icon">🎬</span>
+              <h4>Drop video here or click to browse</h4>
+              <p>Supports MP4, WebM, OGG · Max 100MB<br><em>Large files? Use YouTube URL for best performance.</em></p>
+              <input type="file" id="videoFileInput" accept="video/*" />
+            </div>
+          </div>
+
+          <!-- Preview -->
+          <div class="form-group" style="margin-top:16px;">
+            <label class="form-label">Preview</label>
+            <div class="img-preview-wrap" id="videoPrv">
+              <span style="font-size:2rem;">🎬</span>
+              <p style="margin-top:8px;font-size:0.82rem;">Preview appears here</p>
+            </div>
+          </div>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" data-close-modal>Cancel</button>
+        <button class="btn btn-primary" id="saveVideoBtn">💾 Save Video</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================================================
+       MODAL: ADD / EDIT IMAGE
+       ==================================================== -->
+  <div class="modal-backdrop" id="modalAddImage" role="dialog" aria-modal="true">
+    <div class="modal">
+      <div class="modal-header">
+        <div>
+          <h3 id="imgModalTitle">Add Image</h3>
+          <p>Upload an image from your device to add to the gallery.</p>
+        </div>
+        <button class="modal-close" aria-label="Close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="imgForm" onsubmit="return false;">
+
+          <!-- Preview -->
+          <div class="img-preview-wrap" id="imgPreview" style="margin-bottom:16px;">
+            <span style="font-size:2rem;">🖼️</span>
+            <p style="margin-top:8px;font-size:0.82rem;">Preview appears here</p>
+          </div>
+
+          <!-- Upload zone -->
+          <div class="upload-zone" id="imageUploadZone" style="margin-bottom:16px;">
+            <span class="upload-zone-icon">📷</span>
+            <h4>Drop image here or click to browse</h4>
+            <p>Supports JPG, PNG, WebP, GIF · Max 10MB</p>
+            <input type="file" id="imageFileInput" accept="image/*" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Image Caption</label>
+            <input type="text" id="iCaption" class="form-control-plain" placeholder="e.g. Students during Python Workshop" />
+          </div>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" data-close-modal>Cancel</button>
+        <button class="btn btn-primary" id="saveImageBtn">💾 Save Image</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="assets/js/admin.js"></script>
+  <script>
+    // Dashboard-level helper functions exposed to inline onclick handlers
+    function resetAllData() {
+      if (!confirm('⚠️ This will permanently erase ALL videos and gallery images and restore defaults. Are you sure?')) return;
+      ['ccmc_videos','ccmc_gallery_stem','ccmc_gallery_clubs','ccmc_gallery_sports','ccmc_gallery_arts'].forEach(k => localStorage.removeItem(k));
+      seedDefaults();
+      updateStats();
+      showToast('All data reset to defaults.', 'info');
+      setTimeout(() => location.reload(), 1000);
+    }
+
+    function exportData() {
+      const data = {
+        videos : JSON.parse(localStorage.getItem('ccmc_videos') || '[]'),
+        stem   : JSON.parse(localStorage.getItem('ccmc_gallery_stem') || '[]'),
+        clubs  : JSON.parse(localStorage.getItem('ccmc_gallery_clubs') || '[]'),
+        sports : JSON.parse(localStorage.getItem('ccmc_gallery_sports') || '[]'),
+        arts   : JSON.parse(localStorage.getItem('ccmc_gallery_arts') || '[]'),
+      };
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'cornerstone-backup-' + new Date().toISOString().split('T')[0] + '.json';
+      a.click();
+      showToast('Backup exported!', 'success');
+    }
+  </script>
+</body>
+</html>
