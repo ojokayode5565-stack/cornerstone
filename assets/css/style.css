@@ -1697,3 +1697,399 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+
+/* ==========================================================================
+   CONVERSATIONAL CONTACT WIZARD (Inspired by yuyu.ng)
+   ========================================================================== */
+.convo-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  box-shadow: 0 18px 45px rgba(10, 61, 37, 0.08), 0 4px 12px rgba(10, 61, 37, 0.03);
+  border: 1.5px solid rgba(10, 61, 37, 0.09);
+  position: relative;
+  overflow: hidden;
+}
+
+.convo-progress-container {
+  margin-bottom: 28px;
+}
+
+.convo-progress-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 0.85rem;
+  font-family: var(--font-head);
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.convo-progress-step {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.convo-progress-track {
+  height: 6px;
+  background: rgba(10, 61, 37, 0.08);
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.convo-progress-bar {
+  height: 100%;
+  width: 14%;
+  background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+  border-radius: 100px;
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Question Steps */
+.convo-q {
+  display: none;
+}
+
+.convo-q.active {
+  display: block;
+  animation: convoSlideFade 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes convoSlideFade {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.convo-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  background: rgba(10, 61, 37, 0.06);
+  color: var(--primary);
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-family: var(--font-head);
+  margin-bottom: 12px;
+}
+
+.convo-title {
+  font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+  font-weight: 700;
+  color: var(--primary-dark);
+  line-height: 1.28;
+  margin-bottom: 8px;
+}
+
+.convo-hint {
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin-bottom: 22px;
+  line-height: 1.5;
+}
+
+/* Inputs */
+.convo-input {
+  width: 100%;
+  padding: 15px 18px;
+  font-size: 1.05rem;
+  color: var(--ink);
+  background: var(--light-bg);
+  border: 2px solid rgba(10, 61, 37, 0.12);
+  border-radius: var(--radius-md);
+  outline: none;
+  transition: all var(--transition-fast);
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.convo-input:focus {
+  background: var(--white);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(10, 61, 37, 0.1);
+}
+
+.convo-input.convo-invalid {
+  border-color: #dc2626 !important;
+  background-color: #fff5f5 !important;
+  animation: convoShake 0.3s ease;
+}
+
+@keyframes convoShake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
+
+.convo-input-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.convo-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.convo-input-label {
+  font-family: var(--font-head);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.convo-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Option Pills */
+.convo-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.convo-pill {
+  padding: 11px 18px;
+  border-radius: 50px;
+  border: 1.5px solid rgba(10, 61, 37, 0.16);
+  background: var(--white);
+  color: var(--ink);
+  font-family: var(--font-head);
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  user-select: none;
+}
+
+.convo-pill:hover {
+  border-color: var(--primary);
+  background: rgba(10, 61, 37, 0.04);
+  transform: translateY(-2px);
+  color: var(--primary);
+}
+
+.convo-pill.selected {
+  background: var(--primary);
+  color: var(--white);
+  border-color: var(--primary);
+  box-shadow: 0 4px 12px rgba(10, 61, 37, 0.25);
+}
+
+.convo-options.convo-invalid .convo-pill {
+  border-color: #dc2626;
+  color: #dc2626;
+}
+
+/* Navigation buttons (Back / Continue) */
+.convo-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 32px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(10, 61, 37, 0.08);
+}
+
+.convo-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-family: var(--font-head);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.convo-btn-back {
+  background: transparent;
+  color: var(--muted);
+  border: 1.5px solid rgba(10, 61, 37, 0.18);
+}
+
+.convo-btn-back:hover {
+  background: var(--light-bg);
+  color: var(--ink);
+  border-color: rgba(10, 61, 37, 0.35);
+}
+
+.convo-btn-next {
+  background: var(--primary);
+  color: var(--white);
+  margin-left: auto;
+  box-shadow: 0 4px 14px rgba(10, 61, 37, 0.2);
+}
+
+.convo-btn-next:hover {
+  background: var(--primary-light);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(10, 61, 37, 0.3);
+}
+
+/* Dispatch / Send Options Step (yuyu.ng style) */
+.convo-send-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.convo-send-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 20px;
+  border-radius: var(--radius-md);
+  border: 1.5px solid rgba(10, 61, 37, 0.12);
+  background: var(--white);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-align: left;
+  width: 100%;
+}
+
+.convo-send-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(10, 61, 37, 0.1);
+}
+
+.convo-send-card.card-whatsapp:hover {
+  border-color: #25D366;
+  background: rgba(37, 211, 102, 0.04);
+}
+
+.convo-send-card.card-email:hover {
+  border-color: var(--primary);
+  background: rgba(10, 61, 37, 0.04);
+}
+
+.convo-send-card.card-direct:hover {
+  border-color: var(--secondary);
+  background: rgba(255, 200, 10, 0.06);
+}
+
+.convo-send-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1.5rem;
+}
+
+.card-whatsapp .convo-send-icon {
+  background: #25D366;
+  color: #fff;
+}
+
+.card-email .convo-send-icon {
+  background: var(--primary);
+  color: #fff;
+}
+
+.card-direct .convo-send-icon {
+  background: var(--secondary);
+  color: var(--primary-dark);
+}
+
+.convo-send-title {
+  font-family: var(--font-head);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: 2px;
+}
+
+.convo-send-desc {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+.convo-send-arrow {
+  margin-left: auto;
+  font-size: 1.2rem;
+  color: var(--muted);
+  transition: transform 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+.convo-send-card:hover .convo-send-arrow {
+  transform: translateX(4px);
+  color: var(--primary);
+}
+
+/* Success Confirmation Screen */
+.convo-success-box {
+  display: none;
+  text-align: center;
+  padding: 30px 15px;
+  animation: convoSlideFade 0.4s ease forwards;
+}
+
+.convo-success-icon {
+  width: 68px;
+  height: 68px;
+  background: rgba(10, 61, 37, 0.08);
+  color: var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin: 0 auto 16px;
+}
+
+.convo-success-title {
+  font-size: 1.6rem;
+  color: var(--primary-dark);
+  margin-bottom: 8px;
+}
+
+.convo-success-text {
+  font-size: 0.95rem;
+  color: var(--muted);
+  max-width: 440px;
+  margin: 0 auto 20px;
+  line-height: 1.6;
+}
+
+@media (max-width: 640px) {
+  .convo-card {
+    padding: 24px 18px;
+  }
+  .convo-title {
+    font-size: 1.35rem;
+  }
+  .convo-input-grid {
+    grid-template-columns: 1fr;
+  }
+  .convo-pill {
+    padding: 9px 15px;
+    font-size: 0.88rem;
+  }
+}
+
